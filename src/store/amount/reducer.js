@@ -1,0 +1,27 @@
+
+
+const initialState = {
+    amount: 0,
+};
+/* eslint-disable import/no-anonymous-default-export */
+export default (state = initialState, action)=>{
+    if( action.type === "DEPOSIT_MONEY"){
+        return{
+            ...state,
+            amount: state.amount + 10
+        }
+    }
+    if( action.type === "WITHDRAW_MONEY"){
+        return{
+            ...state,
+            amount: state.amount - 10
+        }
+    }
+    //with person do nothing, we must return the state
+    return state;
+
+}
+
+export const selectCurrentAmount = (state) =>{
+    return state.amountReducer.amount;
+}
